@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Гостевая книга</string>
+    <string name="button_messagelist_text">Список сообщений</string>
+    <string name="button_addmessage_text">Добавить сообщение</string>
+    <string name="logo_description_text">Тут логотип</string>
+    <string name="login_edittext_hint">Введите имя</string>
+    <string name="image_url_edittext_hint">Введите URL иконки</string>
+    <string name="download_image_button_text">Загрузить</string>
+    <string name="entry_edittext_hint">Введите сообщение</string>
+    <string name="send_button_text">Отправить</string>
+</resources>
