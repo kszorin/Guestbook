@@ -6,7 +6,9 @@ import java.util.List;
 
 /**
  * Created by kszorin on 16.11.2016.
+ * Класс, созданый для работы с сообщениями на то время, пока не подключена БД.
  */
+
 public class MessagesList implements MessagesDao {
 
     ArrayList <Message> messages;

@@ -8,11 +8,12 @@ import android.util.Log;
 
 /**
  * Created by kszorin on 16.11.2016.
+ * Класс для создания БД, подключения к ней, добавления начальных данных.
  */
 public class GuestbookDatabaseHelper extends SQLiteOpenHelper{
 
-    private static final String DB_NAME = "guestbook_db"; // Имя базы данных
-    private static final int DB_VERSION = 1; // Версия базы данных
+    private static final String DB_NAME = "guestbook_db";   // Имя базы данных
+    private static final int DB_VERSION = 1;                // Версия базы данных
 
     public GuestbookDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -26,7 +27,7 @@ public class GuestbookDatabaseHelper extends SQLiteOpenHelper{
                 + "ENTRY TEXT, "
                 + "IMAGE_URL TEXT);");
 
-        //заполнение БД для теста
+        //заполнение БД первоначальными тремя сообщениями
         insertMessage(db, "Коля", "Сообщение Коли","https://pp.vk.me/c604822/v604822367/1731d/cHMr9VSNMrs.jpg");
         insertMessage(db, "Маша", "Сообщение Маши","https://pp.vk.me/c638923/v638923696/fb53/nc-kJ00qZBE.jpg");
         insertMessage(db, "Ваня", "Сообщение Вани","https://pp.vk.me/c631322/v631322795/39e08/TBYWmXm2-vM.jpg");

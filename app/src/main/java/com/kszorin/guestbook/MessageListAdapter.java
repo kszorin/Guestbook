@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by kszorin on 13.11.2016.
+ * Класс, описывающий адаптер списка сообщений.
  */
 public class MessageListAdapter extends BaseAdapter {
     Context context;
@@ -48,14 +49,14 @@ public class MessageListAdapter extends BaseAdapter {
         TextView login = (TextView) view.findViewById(R.id.login_textview);
         TextView entry = (TextView) view.findViewById(R.id.entry_textview);
         ImageView image = (ImageView) view.findViewById(R.id.image_imageview);
+
+        //выводим даннаые в список
         login.setText(messages.get(i).getLogin());
         entry.setText(messages.get(i).getEntry());
-        String url = messages.get(i).getImageUrl();
-
         Picasso.with(view.getContext())
                 .load(messages.get(i).getImageUrl())
-                .placeholder(R.drawable.loading)  //картинка при загрузке
-                .error(R.drawable.error)        //картинка в случае ошибки
+                .placeholder(R.drawable.loading)            //картинка, отображаемая во время загрузки
+                .error(R.drawable.error)                    //картинка, если произошла ошибка
                 .into(image);
         return view;
     }

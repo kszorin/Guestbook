@@ -5,6 +5,7 @@ import android.util.Log;
 
 /**
  * Created by kszorin on 18.11.2016.
+ * Синглетон для guestbookDatabaseHelper
  */
 public class GuestbookDatabaseHelperSingleton {
     private static GuestbookDatabaseHelperSingleton instance;
@@ -21,7 +22,6 @@ public class GuestbookDatabaseHelperSingleton {
         Log.i("GuestbookSingleton", "Конструктор");
         guestbookDatabaseHelper = new GuestbookDatabaseHelper(context);
     }
-
 
     public GuestbookDatabaseHelper getGuestbookDatabaseHelper() {
         return guestbookDatabaseHelper;

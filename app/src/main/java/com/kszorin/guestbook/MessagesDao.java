@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by kszorin on 16.11.2016.
+ * DAO описания работы с хранилищем сообщений гостевой книги.
  */
 public interface MessagesDao {
     public List<Message> getAllMessages();          //Возвращает коллекцию Message

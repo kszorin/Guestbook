@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+/*
+   Класс страницы вывода всех сообщений гостевой книги.
+ */
 
 public class MessageListFragment extends Fragment {
 
@@ -24,7 +27,6 @@ public class MessageListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message_list, container, false);
 
-
         /*
         //для варианта с тестовым массивом
         MessagesDao messages = new MessagesList();
@@ -34,17 +36,15 @@ public class MessageListFragment extends Fragment {
             messageListView.setAdapter(messageListAdapter);
         }*/
 
+        //создаём синглетон для доступа к БД
         GuestbookDatabaseHelperSingleton guestbookDatabaseHelperSingleton = GuestbookDatabaseHelperSingleton.getInstance(view.getContext());
         MessagesDao messages = new MessagesDb(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(), view.getContext());
 
-        if (view != null) {
+        if (view != null) {                                                                         //устанавливаем адаптер на ListView
             messageListView = (ListView) view.findViewById(R.id.message_list_listview);
             MessageListAdapter messageListAdapter = new MessageListAdapter(view.getContext(), messages.getAllMessages());
             messageListView.setAdapter(messageListAdapter);
         }
-
-
         return view;
     }
-
 }

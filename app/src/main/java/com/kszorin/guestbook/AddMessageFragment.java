@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Класс страницы ввода нового сообщения.
  */
 public class AddMessageFragment extends Fragment {
 
@@ -37,13 +37,13 @@ public class AddMessageFragment extends Fragment {
             Button downloadIconButton = (Button) view.findViewById(R.id.download_icon_button);
             downloadIconButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    ImageView imageImageView = (ImageView) view.findViewById(R.id.image_imageview);
-                    TextView imageUrlTextView = (TextView) view.findViewById(R.id.image_url_edittext);
+                public void onClick(View v) {                                               //обработка нажатия кнопки "Загрузить"
+                    ImageView imageImageView = (ImageView) view.findViewById(R.id.image_imageview);     //область предпросмотра картинки
+                    TextView imageUrlTextView = (TextView) view.findViewById(R.id.image_url_edittext);  //поле ввода URL картинки
                     Picasso.with(view.getContext())
                             .load(imageUrlTextView.getText().toString())
-                            .placeholder(R.drawable.loading)  //картинка при загрузке
-                            .error(R.drawable.error)        //картинка в случае ошибки
+                            .placeholder(R.drawable.loading)                                            //картинка во время загрузки
+                            .error(R.drawable.error)                                                    //картинка в случае ошибки
                             .into(imageImageView);
                 }
             });
@@ -51,20 +51,20 @@ public class AddMessageFragment extends Fragment {
             Button sendButton = (Button) view.findViewById(R.id.send_button);
             sendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Log.i("AddMessageFragment", "SendMessageButton click");
-
-                    GuestbookDatabaseHelperSingleton guestbookDatabaseHelperSingleton = GuestbookDatabaseHelperSingleton.getInstance(view.getContext());
-                    MessagesDb messages = new MessagesDb(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(), view.getContext());
+                public void onClick(View v) {                                                       //обработка нажатия на кнопку "Отправить"
+                    GuestbookDatabaseHelperSingleton guestbookDatabaseHelperSingleton
+                            = GuestbookDatabaseHelperSingleton.getInstance(view.getContext());
+                    MessagesDb messages = new MessagesDb(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(),
+                            view.getContext());
 
                     EditText login = (EditText) view.findViewById(R.id.login_edittext);
                     EditText entry = (EditText) view.findViewById(R.id.entry_edittext);
                     EditText imageUrl = (EditText) view.findViewById(R.id.image_url_edittext);
 
-                    if ((!login.getText().toString().equals("")) && (!entry.getText().toString().equals(""))) {
-
-                        Message message = new Message(1, login.getText().toString(), entry.getText().toString(), imageUrl.getText().toString());
-                        messages.addMessage(message);
+                    if ((!login.getText().toString().equals("")) && (!entry.getText().toString().equals(""))) {     //проверка того, что поля не пусты
+                        Message message = new Message(1, login.getText().toString(), entry.getText().toString(),
+                                imageUrl.getText().toString());
+                        messages.addMessage(message);                                                               //добавление нового сообщения в БД
 
                         //переход на страницу со списком сообщений
                         MessageListFragment messageListFrag = new MessageListFragment();

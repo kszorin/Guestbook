@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by kszorin on 16.11.2016.
+ * Класс для работы с БД сообщений.
  */
 public class MessagesDb implements MessagesDao {
     GuestbookDatabaseHelper guestbookDatabaseHelper;

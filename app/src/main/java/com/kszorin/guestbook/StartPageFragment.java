@@ -11,10 +11,9 @@ import android.widget.Button;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Стартовая страница приложения.
  */
 public class StartPageFragment extends Fragment {
-
 
     public StartPageFragment() {
         // Required empty public constructor
@@ -27,8 +26,8 @@ public class StartPageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_start_page, container, false);
 
         if (view != null) {
-            Button addMessageButton = (Button) view.findViewById(R.id.add_message_button);
-            addMessageButton.setOnClickListener(new View.OnClickListener() {                        //отображаем фрагмент страницы добавления нового сообщения
+            Button addMessageButton = (Button) view.findViewById(R.id.add_message_button);          //отображаем фрагмент страницы добавления нового сообщения
+            addMessageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AddMessageFragment addMessageFrag = new AddMessageFragment();

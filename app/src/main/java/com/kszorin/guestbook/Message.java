@@ -2,6 +2,7 @@ package com.kszorin.guestbook;
 
 /**
  * Created by kszorin on 10.11.2016.
+ * Класс, описывающий сообщение гостевой книги.
  */
 public class Message {
     private int id;             //id сообщения
