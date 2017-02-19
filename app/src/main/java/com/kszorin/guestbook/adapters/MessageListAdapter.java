@@ -1,4 +1,4 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kszorin.guestbook.R;
+import com.kszorin.guestbook.models.Message;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

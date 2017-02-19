@@ -1,17 +1,14 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.activities;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.app.FragmentTransaction;
-import android.widget.TextView;
+
+import com.kszorin.guestbook.R;
+import com.kszorin.guestbook.fragments.StartPageFragment;
 
 public class MainActivity extends Activity {
 
-    //добавить сохранение состояния и разобраться  с пропаданием стартовой страницы
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

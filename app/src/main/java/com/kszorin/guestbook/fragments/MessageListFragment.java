@@ -1,13 +1,17 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.fragments;
 
 import android.app.Fragment;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.kszorin.guestbook.dbhelper.GuestbookDatabaseHelperSingleton;
+import com.kszorin.guestbook.adapters.MessageListAdapter;
+import com.kszorin.guestbook.dao.MessagesDao;
+import com.kszorin.guestbook.daoimpl.MessagesDaoImpl;
+import com.kszorin.guestbook.R;
 
 /*
    Класс страницы вывода всех сообщений гостевой книги.
@@ -38,7 +42,7 @@ public class MessageListFragment extends Fragment {
 
         //создаём синглетон для доступа к БД
         GuestbookDatabaseHelperSingleton guestbookDatabaseHelperSingleton = GuestbookDatabaseHelperSingleton.getInstance(view.getContext());
-        MessagesDao messages = new MessagesDb(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(), view.getContext());
+        MessagesDao messages = new MessagesDaoImpl(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(), view.getContext());
 
         if (view != null) {                                                                         //устанавливаем адаптер на ListView
             messageListView = (ListView) view.findViewById(R.id.message_list_listview);

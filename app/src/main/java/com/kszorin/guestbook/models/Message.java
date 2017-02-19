@@ -1,4 +1,4 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.models;
 
 /**
  * Created by kszorin on 10.11.2016.

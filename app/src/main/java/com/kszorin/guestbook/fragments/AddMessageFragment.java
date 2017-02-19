@@ -1,13 +1,9 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.fragments;
 
 
 import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kszorin.guestbook.dbhelper.GuestbookDatabaseHelperSingleton;
+import com.kszorin.guestbook.models.Message;
+import com.kszorin.guestbook.daoimpl.MessagesDaoImpl;
+import com.kszorin.guestbook.R;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -54,7 +54,7 @@ public class AddMessageFragment extends Fragment {
                 public void onClick(View v) {                                                       //обработка нажатия на кнопку "Отправить"
                     GuestbookDatabaseHelperSingleton guestbookDatabaseHelperSingleton
                             = GuestbookDatabaseHelperSingleton.getInstance(view.getContext());
-                    MessagesDb messages = new MessagesDb(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(),
+                    MessagesDaoImpl messages = new MessagesDaoImpl(guestbookDatabaseHelperSingleton.getGuestbookDatabaseHelper(),
                             view.getContext());
 
                     EditText login = (EditText) view.findViewById(R.id.login_edittext);

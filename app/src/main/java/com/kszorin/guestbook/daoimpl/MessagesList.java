@@ -1,4 +1,7 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.daoimpl;
+
+import com.kszorin.guestbook.models.Message;
+import com.kszorin.guestbook.dao.MessagesDao;
 
 import java.util.ArrayList;
 import java.util.List;

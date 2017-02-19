@@ -1,4 +1,4 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.fragments;
 
 
 import android.app.FragmentTransaction;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.kszorin.guestbook.R;
 
 
 /**

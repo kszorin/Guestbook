@@ -1,4 +1,4 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.dbhelper;
 
 import android.content.Context;
 import android.util.Log;

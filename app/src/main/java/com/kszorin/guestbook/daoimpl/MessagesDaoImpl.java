@@ -1,13 +1,16 @@
-package com.kszorin.guestbook;
+package com.kszorin.guestbook.daoimpl;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.kszorin.guestbook.dbhelper.GuestbookDatabaseHelper;
+import com.kszorin.guestbook.models.Message;
+import com.kszorin.guestbook.dao.MessagesDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +19,12 @@ import java.util.List;
  * Created by kszorin on 16.11.2016.
  * Класс для работы с БД сообщений.
  */
-public class MessagesDb implements MessagesDao {
+public class MessagesDaoImpl implements MessagesDao {
     GuestbookDatabaseHelper guestbookDatabaseHelper;
     SQLiteDatabase db;
     ArrayList<Message> messages;
 
-    public MessagesDb(GuestbookDatabaseHelper guestbookDatabaseHelper, Context context) {
+    public MessagesDaoImpl(GuestbookDatabaseHelper guestbookDatabaseHelper, Context context) {
         this.guestbookDatabaseHelper = guestbookDatabaseHelper;
         try {
             db = guestbookDatabaseHelper.getWritableDatabase();
